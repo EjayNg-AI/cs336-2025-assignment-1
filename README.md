@@ -11,7 +11,13 @@ raise a GitHub issue or open a pull request with a fix.
 ### Environment
 We manage our environments with `uv` to ensure reproducibility, portability, and ease of use.
 Install `uv` [here](https://github.com/astral-sh/uv) (recommended), or run `pip install uv`/`brew install uv`.
-We recommend reading a bit about managing projects in `uv` [here](https://docs.astral.sh/uv/guides/projects/#managing-dependencies) (you will not regret it!).
+
+**uv Documentation:** This repository includes offline uv documentation in the [`uv-docs/`](./uv-docs/) folder covering:
+- [Project management](./uv-docs/uv-projects.md) - Creating projects, structure, configuration, workspaces
+- [Dependency management](./uv-docs/uv-dependencies.md) - Adding/removing packages, locking, syncing, resolution
+- [GitHub Actions](./uv-docs/uv-github-actions.md) - CI/CD integration
+
+See the [uv-docs README](./uv-docs/README.md) for a complete guide. For topics not covered, visit the [official uv documentation](https://docs.astral.sh/uv/).
 
 You can now run any code in the repo using
 ```sh

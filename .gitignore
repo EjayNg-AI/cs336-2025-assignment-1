@@ -161,3 +161,30 @@ cython_debug/
 
 .ruff_cache/
 *.zip
+
+# uv
+.python-version
+
+# PyTorch / ML artifacts (exclude test fixtures)
+*.pth
+*.ckpt
+checkpoints/
+runs/
+wandb/
+
+# Model outputs
+outputs/
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Local Claude settings
+.claude/
