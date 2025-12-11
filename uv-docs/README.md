@@ -63,14 +63,95 @@ uv venv                     # Create virtual environment
 
 ---
 
+## Installation (summary of official instructions)
+
+- **Unix/macOS**: `curl -LsSf https://astral.sh/uv/install.sh | sh` (installs to `$HOME/.local/bin` by default).
+- **Add to PATH (current shell)**: `source $HOME/.local/bin/env` (or add the file to your shell startup).
+- **Verify**: `uv --version` and `uvx --version`.
+- **Windows**: Use the PowerShell installer from the official guide; see the link below for the latest command.
+- Official docs: https://docs.astral.sh/uv/getting-started/installation/
+
+---
+
+## Post uv installation setup
+
+### 1. Check which shell you’re using
+
+In WSL, run:
+
+```bash
+echo "$SHELL"
+```
+
+* If you see something like `/bin/bash` → use `~/.bashrc`.
+* If you see `/usr/bin/zsh` → use `~/.zshrc`.
+* If you’re not sure, just follow the bash instructions; that’s most likely what you’re on by default.
+
+---
+
+### 2. Add `$HOME/.local/bin` to PATH (bash)
+
+In WSL, run:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+
+Now reload your shell config:
+
+```bash
+source ~/.bashrc
+```
+
+or just close the WSL terminal and open a new one.
+
+Test:
+
+```bash
+which uv
+uv --version
+```
+
+You should see something like `/home/<user>/.local/bin/uv`.
+
+---
+
+### 3. If you’re using zsh instead
+
+Add the line to `~/.zshrc` instead:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+---
+
+### 4. If it still doesn’t work
+
+A quick diagnostic sequence:
+
+```bash
+echo "$PATH"
+ls -l "$HOME/.local/bin"
+which uv
+```
+
+* Confirm `$HOME/.local/bin` appears somewhere in `PATH`.
+* Confirm `uv` (and/or `uvx`) actually exist in `$HOME/.local/bin`.
+* If they don’t, the installer might have placed them elsewhere; in that case:
+
+```bash
+find "$HOME" -maxdepth 5 -type f -name "uv" 2>/dev/null
+```
+
+then add **that** directory to PATH in the same way.
+
+---
+
 ## Topics NOT Covered in This Documentation
 
 The following topics are **not included** in these offline docs. Visit the official documentation for:
-
-### Installation & Getting Started
-- **Installing uv**: https://docs.astral.sh/uv/getting-started/installation/
-- **First steps tutorial**: https://docs.astral.sh/uv/getting-started/first-steps/
-- **Feature overview**: https://docs.astral.sh/uv/getting-started/features/
 
 ### Tools & Scripts
 - **Running scripts**: https://docs.astral.sh/uv/guides/scripts/
