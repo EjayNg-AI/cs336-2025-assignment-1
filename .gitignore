@@ -188,3 +188,27 @@ logs/
 
 # Local Claude settings
 .claude/
+
+# Downloaded datasets and tokenized data
+data/
+*.bin
+*.npy
+*.npz
+*.memmap
+
+# Tokenizer artifacts (vocab, merges)
+*.vocab
+*.merges
+
+# Experiment tracking
+experiments/
+tensorboard/
+mlruns/
+
+# Profiling outputs
+*.prof
+*.pstats
+
+# Large model files
+*.safetensors
+*.pt
